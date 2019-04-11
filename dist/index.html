@@ -10,8 +10,8 @@
 <body>
     <div id="container">
         <div id="searchBar">
-            <input type="text" onclick="handleSearch()" placeholder="City">
-            <i class="fas fa-search"></i>
+            <input type="text" placeholder="City">
+            <i onclick="handleSearch()" class="fas fa-search"></i>
         </div>
         <div id="cities-container">
         </div>
@@ -20,12 +20,12 @@
 <!-- ----------------------------------------------------->
 <script id="city-template" type="text/x-handlebars-template">
     {{#each citiesArr}}
-    <div class="cityCard">
+    <div class="cityCard" data-id="{{name}}">
         <div class="name">{{name}}</div>
         <div class="temperature">{{temperature}}°</div>
         <div class="condition">{{condition}}</div>
         <img src="{{conditionPic}}">
-        <div clas="add"><i class="fas fa-plus-circle"></i></div>
+        <div class="add"><i class="fas fa-{{#if new}}plus{{else}}minus{{/if}}-circle"></i></div>
     </div>
     {{/each}}
 </script>

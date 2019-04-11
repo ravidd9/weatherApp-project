@@ -10,15 +10,14 @@ router.get(`/city/:cityName`, function(req, res){
     if(cityName){
         request(`https://api.apixu.com/v1/current.json?key=${apikey}&q=${cityName}`, function(err, result){
             let body = JSON.parse(result.body)
-            console.log(body)
-            // let newCity = new City({
-            //     name: body.location.name,
-            //     updatedAt: body.current.last_updated,
-            //     temperature: body.current.temp_c,
-            //     condition: body.current.condition.text,
-            //     conditionPic: body.current.condition.icon
-            // })
-            // res.send(newCity)
+            let newCity = new City({
+                name: body.location.name,
+                updatedAt: body.current.last_updated,
+                temperature: body.current.temp_c,
+                condition: body.current.condition.text,
+                conditionPic: body.current.condition.icon
+            })
+            res.send(newCity)
         })
     }
 })
@@ -37,7 +36,8 @@ router.post(`/city`, function(req, res){
 
 router.delete(`/city/:cityName`, function(req, res){
     let cityName = req.params.cityName
-    City.remove({name: cityName})
+    City.findOneAndUpdate({name: cityName}, {new: false}, ()=>{})
+    City.findOneAndDelete({name: cityName}, ()=>{})
 })
 
 

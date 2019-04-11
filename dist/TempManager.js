@@ -5,19 +5,19 @@ class APIManager{
     }
 
    async getDataFromDB(){
-     let db = await $.get(`/cities`)
-            this.cityData = db   
+        let cities = await $.get(`/cities`)
+        this.cityData = cities   
     }
 
-    getCityData(cityName){
-        $.get(`/city/:${cityName}`, function(city){
-            this.cityData.push(city)
-        })
-    }
-
+    async getCityData(cityName){
+        let city = await $.get(`/city/:${cityName}`)
+        city.new = true
+        this.cityData.push(city)
+        }
+    
     saveCity(cityName){
         let chosenCity
-        for(let city of cityData){
+        for(let city of this.cityData){
             if(city.name == cityName){
                 chosenCity = city
             }
@@ -32,6 +32,7 @@ class APIManager{
             url: `/city/${cityName}`,
             type: 'DELETE',
             success: function(city){
+                city.
             console.log("city deleting!")
         }})
     }
