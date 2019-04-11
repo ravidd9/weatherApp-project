@@ -28,11 +28,12 @@ class APIManager{
     }
 
     removeCity(cityName){
+        this.cityData.findIndex() //trying to locate the add and delete bug
         $.ajax({
             url: `/city/${cityName}`,
             type: 'DELETE',
-            success: function(city){
-                city.
+            success: function(){
+               
             console.log("city deleting!")
         }})
     }

@@ -26,7 +26,6 @@ $("#cities-container").on("click", ".fa-minus-circle", async function(){
     console.log("deleted " + cityName)
     await apiManager.removeCity(cityName)
     renderer.render(apiManager.cityData)
-    $(this).attr("class", "fas fa-plus-circle")
 })
 
 

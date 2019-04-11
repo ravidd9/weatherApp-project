@@ -36,7 +36,6 @@ router.post(`/city`, function(req, res){
 
 router.delete(`/city/:cityName`, function(req, res){
     let cityName = req.params.cityName
-    City.findOneAndUpdate({name: cityName}, {new: false}, ()=>{})
     City.findOneAndDelete({name: cityName}, ()=>{})
 })
 
