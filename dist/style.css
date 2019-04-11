@@ -1,0 +1,35 @@
+#container{
+    font-family: Tahoma;
+    background-color: rgb(64, 64, 221);
+}
+#searchBar{
+    margin: 10px;
+}
+.cityCard{
+    margin: 20px;
+    background-color:rgb(86, 86, 253);
+    border: 1px solid black;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    grid-template-areas: 
+    "a t t p p"
+    
+    "a n n c c";
+}
+.name{
+    grid-area: n;
+}
+.temperature{
+    grid-area: t;
+    font-size: 20px;
+}
+.add{
+    grid-area: a;
+}
+.condition{
+    grid-area: c;
+}
+img{
+    grid-area: p;
+}
