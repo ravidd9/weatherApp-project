@@ -18,14 +18,14 @@ const handleSearch = async function(){
 $("#cities-container").on("click", ".fa-plus-circle", function(){
     let cityName = $(this).closest(".cityCard").find(".name").text()
     console.log("added " + cityName)
-    apiManager.saveCity(cityName)
     $(this).attr("class", "fas fa-minus-circle")
+    apiManager.saveCity(cityName)
 })
 $("#cities-container").on("click", ".fa-minus-circle", async function(){
     let cityName = $(this).closest(".cityCard").find(".name").text()
     console.log("deleted " + cityName)
     await apiManager.removeCity(cityName)
-    renderer.render(apiManager.cityData)
+    $(this).closest(".cityCard").remove()
 })
 
 

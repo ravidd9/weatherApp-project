@@ -13,7 +13,7 @@ class APIManager{
         let city = await $.get(`/city/:${cityName}`)
         city.new = true
         this.cityData.push(city)
-        }
+    }
     
     saveCity(cityName){
         let chosenCity
@@ -28,7 +28,6 @@ class APIManager{
     }
 
     removeCity(cityName){
-        this.cityData.findIndex() //trying to locate the add and delete bug
         $.ajax({
             url: `/city/${cityName}`,
             type: 'DELETE',
