@@ -6,7 +6,6 @@ const renderer = new Renderer()
 const loadPage = async function(){
    await apiManager.getDataFromDB()
     renderer.render(apiManager.cityData)
-  
 }
 
 const handleSearch = async function(){
@@ -14,7 +13,17 @@ const handleSearch = async function(){
     if(cityName!=""){
         await apiManager.getCityData(cityName)
         renderer.render(apiManager.cityData)
+        $("#searchBar").find("input").val("")
     }
+}
+
+$("#cities-container").on("click", ".updateButton", async function(){
+    let cityName = $(this).siblings(".name").text()
+    await apiManager.updateCity(cityName)
+    renderer.render(apiManager.cityData)
+})
+const updater = async function(){
+   
 }
 
 $("#cities-container").on("click", ".fa-plus-circle", function(){
@@ -30,5 +39,8 @@ $("#cities-container").on("click", ".fa-minus-circle", async function(){
     $(this).closest(".cityCard").remove()
 })
 
-
 loadPage()
+
+// setInterval(function(){
+
+// }, 10000)

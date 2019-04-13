@@ -28,17 +28,31 @@ img {
     margin: 20px;
     background-color: #00a8ff;
     border: 1px solid black;
+    border-radius: 20px;
     display: grid;
     justify-items: center;
     align-items: center;
     grid-template-areas:
-        ". t t p p"
+        "u t t p p"
         "a t t p p"
         ". n n c c";
 }
 
 .name {
     grid-area: n;
+}
+
+.updateButton{
+    grid-area: u;
+    width: auto;
+    background-color: orange;
+    border: 1px solid black;
+    border-radius: 20px;
+    font-size: 15px;
+    padding: 5px;
+    margin: 5px;
+    justify-self: left;
+    cursor: pointer;
 }
 
 .temperature {
@@ -49,8 +63,13 @@ img {
 .add {
     grid-area: a;
     font-size: 30px;
+    cursor: pointer;
 }
 
 .condition {
     grid-area: c;
+}
+
+.fa-minus-circle{
+    color: red;
 }
