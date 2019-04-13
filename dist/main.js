@@ -11,8 +11,10 @@ const loadPage = async function(){
 
 const handleSearch = async function(){
     let cityName = $("#searchBar").find("input").val()
-    await apiManager.getCityData(cityName)
-    renderer.render(apiManager.cityData)
+    if(cityName!=""){
+        await apiManager.getCityData(cityName)
+        renderer.render(apiManager.cityData)
+    }
 }
 
 $("#cities-container").on("click", ".fa-plus-circle", function(){

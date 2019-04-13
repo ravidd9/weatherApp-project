@@ -1,41 +1,56 @@
-#container{
+#container {
     font-family: Tahoma;
-    background-color: rgb(64, 64, 221);
+    background-color: #74b9ff;
     padding-bottom: 10px;
 }
-#searchBar{
-    padding-top: 10px;
-    margin: 10px;
+
+#searchBar {
+    padding-top: 30px;
+    margin: 40px;
 }
-.cityCard{
+
+input {
+    border: 1px solid black;
+    font-size: 30px;
+}
+
+img {
+    grid-area: p;
+}
+
+#searchIcon{
+    cursor: pointer;
+    font-size: 40px;
+    margin-left: 20px;
+}
+
+.cityCard {
     margin: 20px;
-    background-color:rgb(86, 86, 253);
+    background-color: #00a8ff;
     border: 1px solid black;
     display: grid;
     justify-items: center;
     align-items: center;
-    grid-template-areas: 
-    ". t t p p"
-    "a t t p p"
-    ". n n c c";
+    grid-template-areas:
+        ". t t p p"
+        "a t t p p"
+        ". n n c c";
 }
-.name{
+
+.name {
     grid-area: n;
 }
-.temperature{
+
+.temperature {
     grid-area: t;
     font-size: 30px;
 }
-.add{
+
+.add {
     grid-area: a;
     font-size: 30px;
 }
-.condition{
+
+.condition {
     grid-area: c;
-}
-img{
-    grid-area: p;
-}
-i{
-    cursor: pointer;
 }
