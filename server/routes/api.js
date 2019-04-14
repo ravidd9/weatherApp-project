@@ -37,8 +37,8 @@ router.put(`/city/:cityName`, function (req, res) {
                     condition: body.current.condition.text,
                     conditionPic: body.current.condition.icon
                 })
-                res.send(newCity)
                 City.findOneAndUpdate({name: cityName}, newCity,function(err,res1){})
+                res.send(newCity)
             }
         })
     }
