@@ -1,75 +1,117 @@
+body {
+    margin: 0px;
+    color: white;
+}
+
 #container {
     font-family: Tahoma;
-    background-color: #74b9ff;
-    padding-bottom: 10px;
+    background-color: #3742fa;
+    height: 100vh;
 }
 
 #searchBar {
     padding-top: 30px;
-    margin: 40px;
+    margin-left: 40px;
+    margin-bottom: 40px;
 }
 
 input {
-    border: 1px solid black;
-    font-size: 30px;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #CCC;
+    box-sizing: border-box;
+    font-size: 250%;
+    color: white;
+
+    
 }
+::placeholder{
+    color: white;
+
+}
+
 
 img {
     grid-area: p;
+    height: 150%;
 }
 
-#searchIcon{
+#searchIcon {
     cursor: pointer;
     font-size: 40px;
     margin-left: 20px;
+    color: white;
 }
 
 .cityCard {
     margin: 20px;
-    background-color: #00a8ff;
-    border: 1px solid black;
+    background-color: #0096fa;
+    
+    border: 2px solid black;
     border-radius: 20px;
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
     display: grid;
+    padding: 1%;
     justify-items: center;
     align-items: center;
     grid-template-areas:
-        "u t t p p"
-        "a t t p p"
-        ". n n c c";
+        "a t t p p u"
+        "a t t p p u"
+        "a n n c c u";
+
 }
 
 .name {
     grid-area: n;
+    font-size: 150%;
 }
 
-.updateButton{
+.updateButton {
     grid-area: u;
     width: auto;
-    background-color: orange;
+    color: black;
+    background-color:white;
     border: 1px solid black;
-    border-radius: 20px;
+    border-radius: 50px;
     font-size: 15px;
-    padding: 5px;
+    padding: 10px;
     margin: 5px;
     justify-self: left;
     cursor: pointer;
 }
 
+
 .temperature {
     grid-area: t;
-    font-size: 30px;
+    font-size: 400%;
 }
+
+
 
 .add {
     grid-area: a;
-    font-size: 30px;
     cursor: pointer;
 }
 
 .condition {
     grid-area: c;
+    font-size: 150%;
 }
 
-.fa-minus-circle{
+.fa-plus-circle {
+    font-size: 300%;
+
+}
+
+.fa-minus-circle {
     color: red;
+    font-size: 300%;
+    
+
+}
+
+.fa-sync-alt {
+    font-size: 200%;
 }
