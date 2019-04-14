@@ -13,7 +13,7 @@ router.get(`/city/:cityName`, function (req, res) {
             if (body.location.name) {
                 let newCity = new City({
                     name: body.location.name,
-                    updatedAt: body.current.last_updated,
+                    updatedAt: new Date(body.current.last_updated),
                     temperature: body.current.temp_c,
                     condition: body.current.condition.text,
                     conditionPic: body.current.condition.icon
@@ -32,12 +32,20 @@ router.put(`/city/:cityName`, function (req, res) {
             if (body.location.name) {
                 let newCity = new City({
                     name: body.location.name,
-                    updatedAt: body.current.last_updated,
+                    updatedAt: new Date(body.current.last_updated),
                     temperature: body.current.temp_c,
                     condition: body.current.condition.text,
                     conditionPic: body.current.condition.icon
                 })
-                City.findOneAndUpdate({name: cityName}, newCity,function(err,res1){})
+                console.log(newCity.updatedAt)
+                City.findOneAndUpdate(
+                    {name: cityName}, 
+                    {updatedAt: body.current.last_updated,
+                        temperature: body.current.temp_c,
+                        condition: body.current.condition.text,
+                        conditionPic: body.current.condition.icon},
+                    {new: true}, 
+                    function(err,res1){})
                 res.send(newCity)
             }
         })

@@ -45,7 +45,7 @@ class APIManager {
 
     async updateCity(cityName) {
         let chosenCity = await $.ajax({
-            url: `/city/:${cityName}`,
+            url: `/city/${cityName}`,
             type: `PUT`,
             succes: function () {}
         })
@@ -59,5 +59,18 @@ class APIManager {
                 " has updated at: " + this.cityData[cityIndex].updatedAt)
             }
         }
+    }
+    
+    async updateAll(rightNow){
+        let cities = await $.get(`/cities`)
+        console.log(cities)
+        cities.forEach(city => {
+            let date = new Date(city.updatedAt.substring(0,19))
+            let sub = new Date(rightNow - date).getHours()
+            if(sub >= 3){
+                console.log("updating... " + city.name)
+                this.updateCity(city.name)
+            }
+        })
     }
 }
